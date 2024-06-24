@@ -256,3 +256,24 @@
 		}
 
 })(jQuery);
+
+
+// Dark mode toggle functionality
+const toggleSwitch = document.getElementById('darkModeToggle');
+const contentSection = document.querySelector('.content-section');
+
+// Check if dark mode was enabled previously
+if (localStorage.getItem('darkMode') === 'enabled') {
+  contentSection.classList.add('dark-mode');
+  toggleSwitch.checked = true;
+}
+
+toggleSwitch.addEventListener('change', () => {
+  if (toggleSwitch.checked) {
+    contentSection.classList.add('dark-mode');
+    localStorage.setItem('darkMode', 'enabled');
+  } else {
+    contentSection.classList.remove('dark-mode');
+    localStorage.setItem('darkMode', 'disabled');
+  }
+});
