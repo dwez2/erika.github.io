@@ -4714,7 +4714,7 @@ input, select, textarea {
 
 
 /* Add the dark mode styles below */
-
+/* Toggle switch styles */
 .switch {
   position: fixed;
   top: 20px;
@@ -4780,3 +4780,4 @@ input:checked + .slider:before {
   background-color: #121212;
   color: white;
 }
+
