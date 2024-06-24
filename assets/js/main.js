@@ -277,3 +277,4 @@ toggleSwitch.addEventListener('change', () => {
     localStorage.setItem('darkMode', 'disabled');
   }
 });
+
