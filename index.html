@@ -19,6 +19,20 @@
 
   
 				<!-- Intro -->
+ChatGPT said:
+Thanks! I see what’s going wrong—it looks like the nested <div id="intro"> is never closed properly before the video, which is causing layout issues.
+
+Here’s the cleaned-up and fixed version of your code. I’ve:
+
+Properly closed the <div id="intro"> before your video
+
+Ensured consistent indentation and spacing
+
+Left all your styles, formatting, and content intact
+
+html
+Copy
+Edit
 <div id="intro">
   <h2>Translating Complex IT Into Clear, Scalable, and Secure Business Solutions</h2>
   <h2>Erika Hernandez | IT & Cybersecurity Leader • Educator • Strategic Problem Solver</h2>
@@ -31,14 +45,16 @@
   <br>🌐 Learn more on <a href="https://www.linkedin.com/in/erikahernandez801/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
   </p>
 </div>
-						<video width="50%" height="20%" autoplay loop muted controls>
-							<source src="images/About Me.mp4" type="video/mp4" />
-						  </video>
-						  <hr>
-						<ul class="actions">
-							<li><a href="#header" class="button icon solid solo fa-arrow-down scrolly">Continue</a></li>
-						</ul>
-					</div>
+
+<video width="50%" height="20%" autoplay loop muted controls>
+  <source src="images/About Me.mp4" type="video/mp4" />
+</video>
+
+<hr>
+
+<ul class="actions">
+  <li><a href="#header" class="button icon solid solo fa-arrow-down scrolly">Continue</a></li>
+</ul>
 
 				<!-- Header -->
 					<header id="header">
