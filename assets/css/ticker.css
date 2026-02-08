@@ -1,0 +1,101 @@
+/* ===== Ticker CSS (Desktop + Mobile) ===== */
+
+/* Make sure images in ticker NEVER inherit template image sizing */
+.tech-ticker-wrap img,
+.tech-ticker-wrap .logo-box img {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  object-fit: contain !important;
+  display: block !important;
+}
+
+/* If your footer layout forces sections into columns on desktop, make ticker full width */
+#footer > section.tech-ticker-wrap {
+  flex-basis: 100% !important;
+  flex-grow: 1 !important;
+  border-left: 0 !important;
+}
+
+/* Container */
+.tech-ticker-wrap { width: 100%; padding: 0 0 2rem 0; }
+.tech-ticker-wrap h3 { margin-bottom: 1rem; }
+
+.tech-ticker {
+  overflow: hidden;
+  border: 2px solid #e2e2e2;
+  background: rgba(255,255,255,0.7);
+  position: relative;
+}
+
+/* Fade edges */
+.tech-ticker::before,
+.tech-ticker::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 4rem;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+.tech-ticker::before {
+  left: 0;
+  background: linear-gradient(to right, #f5f5f5, rgba(245,245,245,0));
+}
+.tech-ticker::after {
+  right: 0;
+  background: linear-gradient(to left, #f5f5f5, rgba(245,245,245,0));
+}
+
+/* Moving track */
+.tech-ticker__track {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  width: max-content;
+  padding: 0.7rem 1rem;
+  animation: techTickerScroll 22s linear infinite;
+}
+
+.tech-ticker:hover .tech-ticker__track {
+  animation-play-state: paused;
+}
+
+/* Pills */
+.tech-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.35rem 0.75rem;
+  border: 2px solid #e2e2e2;
+  background: #fff;
+  font-weight: 900;
+  letter-spacing: 0.075em;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  white-space: nowrap;
+  line-height: 1;
+}
+
+/* Same-size logo box */
+.tech-pill .logo-box {
+  width: 26px !important;
+  height: 26px !important;
+  flex: 0 0 26px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  overflow: hidden !important;
+}
+
+/* Smooth loop */
+@keyframes techTickerScroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tech-ticker__track { animation: none; }
+}
