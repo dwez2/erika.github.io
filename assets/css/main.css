@@ -4933,7 +4933,37 @@ input, select, textarea {
 @media (prefers-reduced-motion: reduce) {
   .tech-ticker__track { animation: none; }
 }
-	
+
+
+/* ===== Desktop polish for ticker ===== */
+@media screen and (min-width: 981px) {
+
+  /* keep the ticker compact on desktop */
+  #footer .tech-ticker__track{
+    padding: 0.6rem 1rem;
+    gap: 0.6rem;
+    animation-duration: 22s; /* a little faster looks better on wide screens */
+  }
+
+  #footer .tech-pill{
+    padding: 0.35rem 0.75rem;
+    font-size: 0.7rem;
+  }
+
+  #footer .tech-pill .logo-box{
+    width: 26px;
+    height: 26px;
+    flex: 0 0 26px;
+  }
+
+  /* make sure nothing breaks into multiple lines */
+  #footer .tech-ticker,
+  #footer .tech-ticker__track{
+    white-space: nowrap;
+  }
+}
+
+		
 	}
 
 
