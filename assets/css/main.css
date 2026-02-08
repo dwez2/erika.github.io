@@ -4963,6 +4963,35 @@ input, select, textarea {
   }
 }
 
+
+		/* ===== HARD OVERRIDE: stop template from blowing up ticker logos ===== */
+#footer .tech-ticker-wrap img {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  object-fit: contain !important;
+}
+
+#footer .tech-ticker-wrap .logo-box {
+  width: 28px !important;
+  height: 28px !important;
+  flex: 0 0 28px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  overflow: hidden !important;
+}
+
+#footer .tech-ticker-wrap .tech-pill {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  padding: 0.35rem 0.7rem !important;
+  font-size: 0.7rem !important;
+  line-height: 1 !important;
+}
+
 		
 	}
 
