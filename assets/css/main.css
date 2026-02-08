@@ -4708,7 +4708,48 @@ input, select, textarea {
 			box-shadow: 0 0 1.5rem 0 rgba(0, 0, 0, 0.2);
 			visibility: visible;
 		}
-		
+
+
+
+		/* ===========================
+   FIX: Make left/right images look clean on desktop
+   Paste at VERY BOTTOM of main.css
+   =========================== */
+
+/* Desktop: keep floated images from getting huge */
+@media screen and (min-width: 981px) {
+  .image.left, .image.right {
+    max-width: 320px;      /* prevents giant images on wide screens */
+    width: 320px;
+    top: 0;                /* removes the weird down-shift */
+  }
+
+  /* Optional: make them a consistent “card” size */
+  .image.left img, .image.right img {
+    width: 100%;
+    height: 220px;         /* forces consistent height */
+    object-fit: cover;     /* crops nicely instead of stretching */
+    border-radius: 6px;
+  }
+}
+
+/* Mobile/tablet: stack images normally (keeps what you like on phone) */
+@media screen and (max-width: 980px) {
+  .image.left, .image.right {
+    float: none;
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 0 2rem 0;
+    top: 0;
+  }
+
+  .image.left img, .image.right img {
+    height: auto;
+    object-fit: contain;
+  }
+}
+
 		
 	}
 
