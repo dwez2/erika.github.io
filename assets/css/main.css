@@ -4711,44 +4711,37 @@ input, select, textarea {
 
 
 
-		/* ===========================
-   FIX: Make left/right images look clean on desktop
-   Paste at VERY BOTTOM of main.css
+/* ===========================
+   Aboutme.html image grid fix
    =========================== */
-
-/* Desktop: keep floated images from getting huge */
-@media screen and (min-width: 981px) {
-  .image.left, .image.right {
-    max-width: 320px;      /* prevents giant images on wide screens */
-    width: 320px;
-    top: 0;                /* removes the weird down-shift */
-  }
-
-  /* Optional: make them a consistent “card” size */
-  .image.left img, .image.right img {
-    width: 100%;
-    height: 220px;         /* forces consistent height */
-    object-fit: cover;     /* crops nicely instead of stretching */
-    border-radius: 6px;
-  }
+.aboutme-img-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2rem;
+  align-items: start;
+  margin: 0 0 2rem 0;
 }
 
-/* Mobile/tablet: stack images normally (keeps what you like on phone) */
+.aboutme-img img {
+  width: 100%;
+  height: 420px;        /* makes them match height */
+  object-fit: cover;    /* crops nicely instead of stretching */
+  display: block;
+  border-radius: 6px;
+}
+
+/* Mobile: stack them */
 @media screen and (max-width: 980px) {
-  .image.left, .image.right {
-    float: none;
-    display: block;
-    width: 100%;
-    max-width: 100%;
-    margin: 0 0 2rem 0;
-    top: 0;
+  .aboutme-img-grid {
+    grid-template-columns: 1fr;
   }
 
-  .image.left img, .image.right img {
-    height: auto;
+  .aboutme-img img {
+    height: auto;       /* let mobile show full image */
     object-fit: contain;
   }
 }
+
 
 		
 	}
