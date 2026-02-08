@@ -99,3 +99,23 @@
 @media (prefers-reduced-motion: reduce) {
   .tech-ticker__track { animation: none; }
 }
+
+
+/* ===== Footer layout fix: keep ticker + contact stacked ===== */
+#footer {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#footer > section.tech-ticker-wrap {
+  width: 100%;
+  flex: 0 0 100%;
+  border-left: 0;
+}
+
+/* This is your contact block (Lives in / Email / Social) */
+#footer > section.split.contact {
+  width: 100%;
+  flex: 0 0 100%;
+  border-left: 0;
+}
