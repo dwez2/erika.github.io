@@ -4708,6 +4708,106 @@ input, select, textarea {
 			box-shadow: 0 0 1.5rem 0 rgba(0, 0, 0, 0.2);
 			visibility: visible;
 		}
+
+
+/* This is where the rotating banner is with all the logos i use */ 
+
+		/* ===== Tech Logo Ticker (Footer Banner) ===== */
+.tech-ticker-wrap {
+  width: 100%;
+  padding: 0 0 2rem 0;
+}
+
+.tech-ticker-wrap h3 {
+  margin-bottom: 1rem;
+}
+
+.tech-ticker {
+  overflow: hidden;
+  border: solid 2px #e2e2e2;
+  background: rgba(255,255,255,0.7);
+  position: relative;
+}
+
+.tech-ticker::before,
+.tech-ticker::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 4rem;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.tech-ticker::before {
+  left: 0;
+  background: linear-gradient(to right, #f5f5f5, rgba(245,245,245,0));
+}
+
+.tech-ticker::after {
+  right: 0;
+  background: linear-gradient(to left, #f5f5f5, rgba(245,245,245,0));
+}
+
+.tech-ticker__track {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: max-content;
+  padding: 0.9rem 1rem;
+  animation: techTickerScroll 26s linear infinite;
+}
+
+.tech-ticker:hover .tech-ticker__track {
+  animation-play-state: paused;
+}
+
+.tech-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.45rem 0.9rem;
+  border: solid 2px #e2e2e2;
+  background: #ffffff;
+  font-weight: 900;
+  letter-spacing: 0.075em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  white-space: nowrap;
+}
+
+.tech-pill:hover {
+  border-color: #18bfef;
+  color: #18bfef;
+}
+
+.tech-pill .logo-box {
+  width: 28px;
+  height: 28px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.tech-pill img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+@keyframes techTickerScroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tech-ticker__track { animation: none; }
+}
+
+
 		
 	}
 
