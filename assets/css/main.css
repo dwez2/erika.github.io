@@ -4712,309 +4712,35 @@ input, select, textarea {
 
 /* This is where the rotating banner is with all the logos i use */ 
 
-		/* ===== Tech Logo Ticker (Footer Banner) ===== */
-.tech-ticker-wrap {
-  width: 100%;
-  padding: 0 0 2rem 0;
-}
-
-.tech-ticker-wrap h3 {
-  margin-bottom: 1rem;
-}
-
-.tech-ticker {
-  overflow: hidden;
-  border: solid 2px #e2e2e2;
-  background: rgba(255,255,255,0.7);
-  position: relative;
-}
-
-.tech-ticker::before,
-.tech-ticker::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  width: 4rem;
-  height: 100%;
-  z-index: 2;
-  pointer-events: none;
-}
-
-.tech-ticker::before {
-  left: 0;
-  background: linear-gradient(to right, #f5f5f5, rgba(245,245,245,0));
-}
-
-.tech-ticker::after {
-  right: 0;
-  background: linear-gradient(to left, #f5f5f5, rgba(245,245,245,0));
-}
-
-.tech-ticker__track {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  width: max-content;
-  padding: 0.9rem 1rem;
-  animation: techTickerScroll 26s linear infinite;
-}
-
-.tech-ticker:hover .tech-ticker__track {
-  animation-play-state: paused;
-}
-
-.tech-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
-  padding: 0.45rem 0.9rem;
-  border: solid 2px #e2e2e2;
-  background: #ffffff;
-  font-weight: 900;
-  letter-spacing: 0.075em;
-  text-transform: uppercase;
-  font-size: 0.75rem;
-  white-space: nowrap;
-}
-
-.tech-pill:hover {
-  border-color: #18bfef;
-  color: #18bfef;
-}
-
-.tech-pill .logo-box {
-  width: 28px;
-  height: 28px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
-
-.tech-pill img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
-  display: block;
-}
-
-@keyframes techTickerScroll {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .tech-ticker__track { animation: none; }
-}
-
-/* ===== FIX: Force ticker logos to stay small (override template img rules) ===== */
-#footer .tech-ticker .tech-pill .logo-box{
-  width: 34px;
-  height: 34px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  flex: 0 0 34px;
-}
-
-#footer .tech-ticker .tech-pill img{
-  width: auto !important;
-  height: auto !important;
-  max-width: 100% !important;
-  max-height: 100% !important;
-  object-fit: contain !important;
-  display: block;
-}
-
-/* Make the pill itself behave like a pill */
-#footer .tech-ticker .tech-pill{
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
-  padding: 0.45rem 0.9rem;
-  border: solid 2px #e2e2e2;
-  background: #ffffff;
-  font-weight: 900;
-  letter-spacing: 0.075em;
-  text-transform: uppercase;
-  font-size: 0.75rem;
-  white-space: nowrap;
-}
-
-	/* ===== Tech Logo Ticker (Footer Banner) - GLOBAL ===== */
-.tech-ticker-wrap {
-  width: 100%;
-  padding: 0 0 2rem 0;
-}
-
-.tech-ticker-wrap h3 {
-  margin-bottom: 1rem;
-}
-
-.tech-ticker {
-  overflow: hidden;
-  border: solid 2px #e2e2e2;
-  background: rgba(255,255,255,0.7);
-  position: relative;
-}
-
-.tech-ticker::before,
-.tech-ticker::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  width: 4rem;
-  height: 100%;
-  z-index: 2;
-  pointer-events: none;
-}
-
-.tech-ticker::before {
-  left: 0;
-  background: linear-gradient(to right, #f5f5f5, rgba(245,245,245,0));
-}
-
-.tech-ticker::after {
-  right: 0;
-  background: linear-gradient(to left, #f5f5f5, rgba(245,245,245,0));
-}
-
-.tech-ticker__track {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  width: max-content;
-  padding: 0.9rem 1rem;
-  animation: techTickerScroll 26s linear infinite;
-}
-
-.tech-ticker:hover .tech-ticker__track {
-  animation-play-state: paused;
-}
-
-.tech-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
-  padding: 0.45rem 0.9rem;
-  border: solid 2px #e2e2e2;
-  background: #ffffff;
-  font-weight: 900;
-  letter-spacing: 0.075em;
-  text-transform: uppercase;
-  font-size: 0.75rem;
-  white-space: nowrap;
-}
-
-/* ✅ This is what forces ALL logos to look the same size */
-.tech-pill .logo-box {
-  width: 34px;
-  height: 34px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  flex: 0 0 34px;
-}
-
-.tech-pill img {
-  width: 100% !important;
-  height: 100% !important;
-  object-fit: contain !important;
-  display: block;
-}
-
-@keyframes techTickerScroll {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .tech-ticker__track { animation: none; }
-}
-
-
-/* ===== Desktop polish for ticker ===== */
-@media screen and (min-width: 981px) {
-
-  /* keep the ticker compact on desktop */
-  #footer .tech-ticker__track{
-    padding: 0.6rem 1rem;
-    gap: 0.6rem;
-    animation-duration: 22s; /* a little faster looks better on wide screens */
-  }
-
-  #footer .tech-pill{
-    padding: 0.35rem 0.75rem;
-    font-size: 0.7rem;
-  }
-
-  #footer .tech-pill .logo-box{
-    width: 26px;
-    height: 26px;
-    flex: 0 0 26px;
-  }
-
-  /* make sure nothing breaks into multiple lines */
-  #footer .tech-ticker,
-  #footer .tech-ticker__track{
-    white-space: nowrap;
-  }
-}
-
-
-		/* ===== HARD OVERRIDE: stop template from blowing up ticker logos ===== */
-#footer .tech-ticker-wrap img {
-  width: 100% !important;
-  height: 100% !important;
-  max-width: 100% !important;
-  max-height: 100% !important;
-  object-fit: contain !important;
-}
-
-#footer .tech-ticker-wrap .logo-box {
-  width: 28px !important;
-  height: 28px !important;
-  flex: 0 0 28px !important;
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  overflow: hidden !important;
-}
-
-#footer .tech-ticker-wrap .tech-pill {
-  display: inline-flex !important;
-  align-items: center !important;
-  gap: 0.5rem !important;
-  padding: 0.35rem 0.7rem !important;
-  font-size: 0.7rem !important;
-  line-height: 1 !important;
-}
 
 /* =========================
-   Tech Logo Ticker (GLOBAL)
-   Paste this at the VERY BOTTOM of main.css (outside any @media blocks)
+   TECH LOGO TICKER (Desktop + Mobile FIX)
+   Paste this ONCE at the VERY BOTTOM of main.css
    ========================= */
 
-.tech-ticker-wrap {
-  width: 100%;
-  padding: 0 0 2rem 0;
+/* Make ticker span full width in footer (template makes footer sections 50% on desktop) */
+#footer {
+  flex-wrap: wrap;
 }
 
-.tech-ticker-wrap h3 {
-  margin-bottom: 1rem;
+#footer > section.tech-ticker-wrap {
+  flex-basis: 100%;
+  flex-grow: 1;
+  border-left: 0;
+  padding: 3rem 4rem 2rem 4rem;
 }
 
-.tech-ticker {
+/* Ticker container */
+#footer .tech-ticker {
   overflow: hidden;
   border: solid 2px #e2e2e2;
   background: rgba(255,255,255,0.7);
   position: relative;
 }
 
-.tech-ticker::before,
-.tech-ticker::after {
+/* Faded edges */
+#footer .tech-ticker::before,
+#footer .tech-ticker::after {
   content: "";
   position: absolute;
   top: 0;
@@ -5024,61 +4750,59 @@ input, select, textarea {
   pointer-events: none;
 }
 
-.tech-ticker::before {
+#footer .tech-ticker::before {
   left: 0;
   background: linear-gradient(to right, #f5f5f5, rgba(245,245,245,0));
 }
 
-.tech-ticker::after {
+#footer .tech-ticker::after {
   right: 0;
   background: linear-gradient(to left, #f5f5f5, rgba(245,245,245,0));
 }
 
-.tech-ticker__track {
+/* Moving track */
+#footer .tech-ticker__track {
   display: flex;
   align-items: center;
   gap: 0.75rem;
   width: max-content;
-  padding: 0.9rem 1rem;
-  animation: techTickerScroll 26s linear infinite;
+  padding: 0.7rem 1rem;
+  animation: techTickerScroll 22s linear infinite;
 }
 
-.tech-ticker:hover .tech-ticker__track {
+#footer .tech-ticker:hover .tech-ticker__track {
   animation-play-state: paused;
 }
 
-.tech-pill {
+/* Pills */
+#footer .tech-pill {
   display: inline-flex;
   align-items: center;
   gap: 0.6rem;
-  padding: 0.45rem 0.9rem;
+  padding: 0.35rem 0.75rem;
   border: solid 2px #e2e2e2;
   background: #ffffff;
   font-weight: 900;
   letter-spacing: 0.075em;
   text-transform: uppercase;
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   white-space: nowrap;
+  line-height: 1;
 }
 
-.tech-pill:hover {
-  border-color: #18bfef;
-  color: #18bfef;
-}
-
-/* Force ALL logos to the same box size */
-.tech-pill .logo-box {
-  width: 34px;
-  height: 34px;
-  flex: 0 0 34px;
+/* Force every logo into the SAME box size */
+#footer .tech-pill .logo-box {
+  width: 26px;
+  height: 26px;
+  flex: 0 0 26px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
 }
 
-/* Hard override so the template can't blow up the images */
-.tech-pill .logo-box img {
+/* Hard override: prevents template from making images huge */
+#footer .tech-pill .logo-box img {
   width: 100% !important;
   height: 100% !important;
   max-width: 100% !important;
@@ -5093,26 +4817,9 @@ input, select, textarea {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .tech-ticker__track { animation: none; }
+  #footer .tech-ticker__track { animation: none; }
 }
-
-/* Desktop: make it a little tighter (optional but nice) */
-@media screen and (min-width: 981px) {
-  .tech-ticker__track {
-    padding: 0.6rem 1rem;
-    gap: 0.6rem;
-    animation-duration: 22s;
-  }
-  .tech-pill {
-    padding: 0.35rem 0.75rem;
-    font-size: 0.7rem;
-  }
-  .tech-pill .logo-box {
-    width: 26px;
-    height: 26px;
-    flex: 0 0 26px;
-  }
-}
+		
 		
 	}
 
