@@ -4807,6 +4807,40 @@ input, select, textarea {
   .tech-ticker__track { animation: none; }
 }
 
+/* ===== FIX: Force ticker logos to stay small (override template img rules) ===== */
+#footer .tech-ticker .tech-pill .logo-box{
+  width: 34px;
+  height: 34px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  flex: 0 0 34px;
+}
+
+#footer .tech-ticker .tech-pill img{
+  width: auto !important;
+  height: auto !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  object-fit: contain !important;
+  display: block;
+}
+
+/* Make the pill itself behave like a pill */
+#footer .tech-ticker .tech-pill{
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.45rem 0.9rem;
+  border: solid 2px #e2e2e2;
+  background: #ffffff;
+  font-weight: 900;
+  letter-spacing: 0.075em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  white-space: nowrap;
+}
 
 		
 	}
