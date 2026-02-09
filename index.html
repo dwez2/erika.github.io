@@ -79,9 +79,18 @@
 							<article class="post featured">
 								<header class="major">
  <span class="date">
-  <script>
-    document.write(new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }));
-  </script>
+ <script>
+  document.write(
+    new Date().toLocaleString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+      hour: 'numeric',
+      minute: '2-digit',
+      second: '2-digit'
+    })
+  );
+</script>
 </span>
 <h3><a href="#">Navigating the Intersection of Technology, Cybersecurity, and Customer-Centered Leadership<br /></a></h3>
 <p><span class="image right"><img src="images/attackkali.png" alt="" /></span>
@@ -318,6 +327,7 @@ Email me
 		
 	</body>
 </html>
+
 
 
 
