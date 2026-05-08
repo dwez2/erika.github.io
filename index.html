@@ -234,10 +234,114 @@
   Erika believes strong technology leadership is not only about solving technical problems — it is also about building trust, improving communication, and creating positive experiences for the people who rely on technology every day.
 
 </p>
-
-<br>
 						
-						<br><br>
+<br><br>
+<hr> 
+
+<!-----------------------------This is for the interactive seaction ---------------- --> 
+
+
+<hr />
+
+<section class="post">
+
+  <header class="major">
+    <h2>Security Operations Center Overview</h2>
+
+    <p>
+      Modern cybersecurity requires continuous monitoring, operational visibility,
+      and proactive response. This interactive dashboard demonstrates key concepts
+      commonly used within IT operations, infrastructure monitoring, and security environments.
+    </p>
+  </header>
+
+  <div class="soc-dashboard">
+
+    <div class="soc-card">
+      <h3>Threat Status</h3>
+      <div class="status online">● Monitoring Active</div>
+      <p>Endpoint monitoring and security visibility operational.</p>
+    </div>
+
+    <div class="soc-card">
+      <h3>Infrastructure Health</h3>
+      <div class="status good">● Systems Stable</div>
+      <p>Core services responding within normal operational thresholds.</p>
+    </div>
+
+    <div class="soc-card">
+      <h3>Security Alerts</h3>
+      <div class="status warning">● 3 Alerts Detected</div>
+      <p>Potential phishing and authentication anomalies identified.</p>
+    </div>
+
+    <div class="soc-card">
+      <h3>Compliance Monitoring</h3>
+      <div class="status online">● Audit Ready</div>
+      <p>Security controls and operational documentation verified.</p>
+    </div>
+
+  </div>
+
+  <br>
+
+  <button type="button" onclick="runSecurityScan()">
+    Run Security Scan
+  </button>
+
+  <div id="scanResult" class="cyber-console">
+    Waiting for security scan...
+  </div>
+
+</section>
+
+<script>
+
+function runSecurityScan() {
+
+  const messages = [
+
+    "[INFO] Initializing security scan...",
+    "[INFO] Verifying endpoint connectivity...",
+    "[INFO] Checking authentication logs...",
+    "[INFO] Reviewing patch compliance...",
+    "[INFO] Inspecting firewall activity...",
+    "[INFO] Monitoring DNS requests...",
+    "[SUCCESS] Security scan completed successfully.",
+    "[STATUS] No critical threats detected."
+
+  ];
+
+  let i = 0;
+
+  const consoleBox =
+    document.getElementById("scanResult");
+
+  consoleBox.innerHTML = "";
+
+  const interval = setInterval(() => {
+
+    if (i < messages.length) {
+
+      consoleBox.innerHTML +=
+        messages[i] + "<br>";
+
+      consoleBox.scrollTop =
+        consoleBox.scrollHeight;
+
+      i++;
+
+    } else {
+
+      clearInterval(interval);
+    }
+
+  }, 700);
+}
+
+</script>						
+						
+						
 						
 <!------------ This section is about the resume and references------------------------------->	
 						
