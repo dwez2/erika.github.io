@@ -186,6 +186,92 @@
   </article>
 
 </section>
+
+
+							<hr />
+					
+<!-- Interactive security thing  -->
+
+
+<section class="post">
+  <header class="major">
+    <h2>Interactive Security Risk Decision Demo</h2>
+    <p>
+      This demo shows how IT and cybersecurity leaders evaluate risk, prioritize action,
+      and make decisions that protect systems while supporting business operations.
+    </p>
+  </header>
+
+  <div class="risk-demo">
+
+    <h3>Select a scenario:</h3>
+
+    <button type="button" onclick="showRisk('unpatched')">
+      Unpatched Server
+    </button>
+
+    <button type="button" onclick="showRisk('shared')">
+      Shared Admin Account
+    </button>
+
+    <button type="button" onclick="showRisk('backup')">
+      Failed Backup
+    </button>
+
+    <button type="button" onclick="showRisk('vendor')">
+      Unknown Vendor Access
+    </button>
+
+    <div id="riskResult" class="cyber-result dark">
+      Select a scenario to review the risk and recommended action.
+    </div>
+
+  </div>
+</section>
+
+<script>
+  function showRisk(type) {
+    const result = document.getElementById("riskResult");
+
+    if (type === "unpatched") {
+      result.innerHTML = `
+        <strong>Scenario:</strong> Unpatched Server<br><br>
+        <strong>Risk Level:</strong> <span style="color:#ff6b6b;">High</span><br><br>
+        <strong>Why it matters:</strong> Missing patches can expose known vulnerabilities that attackers may already know how to exploit.<br><br>
+        <strong>Recommended Action:</strong> Review patch status, test updates, schedule maintenance, apply critical patches, and document the change.
+      `;
+    }
+
+    if (type === "shared") {
+      result.innerHTML = `
+        <strong>Scenario:</strong> Shared Admin Account<br><br>
+        <strong>Risk Level:</strong> <span style="color:#ff6b6b;">High</span><br><br>
+        <strong>Why it matters:</strong> Shared accounts make it difficult to track who made changes and can weaken accountability during audits or investigations.<br><br>
+        <strong>Recommended Action:</strong> Create named admin accounts, enforce MFA, apply least privilege, and review access regularly.
+      `;
+    }
+
+    if (type === "backup") {
+      result.innerHTML = `
+        <strong>Scenario:</strong> Failed Backup<br><br>
+        <strong>Risk Level:</strong> <span style="color:#f0c674;">Medium to High</span><br><br>
+        <strong>Why it matters:</strong> If backups are failing, recovery may not be possible during ransomware, system failure, or accidental deletion.<br><br>
+        <strong>Recommended Action:</strong> Investigate failure logs, confirm backup schedule, test restore capability, and document recovery readiness.
+      `;
+    }
+
+    if (type === "vendor") {
+      result.innerHTML = `
+        <strong>Scenario:</strong> Unknown Vendor Access<br><br>
+        <strong>Risk Level:</strong> <span style="color:#f0c674;">Medium</span><br><br>
+        <strong>Why it matters:</strong> Vendor access can introduce risk if permissions are unclear, unused, or not reviewed regularly.<br><br>
+        <strong>Recommended Action:</strong> Verify business need, review permissions, remove unused access, require MFA, and document ownership.
+      `;
+    }
+  }
+</script>
+
+
 						
 <!-- Chatbase Chat Bubble Embed -->
 <script>
