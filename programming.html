@@ -112,30 +112,217 @@
 </section>
 						
 
-	<py-script> 
-		print('X-mas tree using python')
-	</py-script>
-	<iframe src="https://trinket.io/embed/python/0c5d71a90e?runMode=console" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+<!--This is where the cyber code will go  --> 
 
-	<py-script> 
-		print('Drawing out a heart using turtle ')
-	</py-script>
-	<iframe src="https://trinket.io/embed/python/eedfd42544" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
 
-	<py-script> 
-		print('Simple Calculator ')
-	</py-script>
-	<iframe src="https://trinket.io/embed/python/db6d6c1533" width="100%" height="800" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+<!-- Interactive Cybersecurity Teaching Demos -->
+<section class="post">
 
-	<p>It was a privilege teaching these elementary students. I believe learning to code should be fun and engaging—and when you bring joy into the process, students thrive.</p>
+  <header class="major">
+    <h2>Interactive Cybersecurity Learning Demos</h2>
 
-	<!--<header>
-		<hr>
-		<h2>HTML/CSS/PHP</h2>
-		<p>As part of a school project, we created a full-stack application with poll, contact, and admin pages. 
-		You can explore the project here: <a href="https://icarus.cs.weber.edu/~eh05546/web3400/fp/index.html">School Project</a>.</p>  ******I NEED TO FIND THE CODE*************
-	</header>  --> 
+    <p>
+      These interactive activities reflect the way I approach teaching technology and cybersecurity concepts: practical, hands-on, and easy to understand. Rather than focusing only on theory, I believe students learn best when they can actively engage with real-world security concepts and see how they apply in modern IT environments.
+      <br><br>
+      The activities below introduce foundational cybersecurity topics including password security, phishing awareness, and multi-factor authentication (MFA) through simple interactive demonstrations designed to make learning more approachable and engaging.
+    </p>
+  </header>
+
+  <hr />
+
+  <!-- Password Strength Checker -->
+  <h3>Password Strength Checker</h3>
+
+  <p>
+    This activity demonstrates how password complexity affects account security. It introduces learners to password best practices including length, uppercase letters, numbers, and stronger authentication habits.
+  </p>
+
+  <input type="password" id="passwordInput" placeholder="Enter a password" />
+
+  <button type="button" onclick="checkPassword()">
+    Check Password
+  </button>
+
+  <div id="passwordResult" class="cyber-result">
+    Enter a password to test its strength.
+  </div>
+
+  <hr />
+
+  <!-- Phishing Email Detector -->
+  <h3>Phishing Email Awareness Demo</h3>
+
+  <p>
+    This activity helps learners identify common phishing indicators such as suspicious sender domains, urgent language, and attempts to collect sensitive information.
+  </p>
+
+  <div class="phishing-box">
+
+    <strong>From:</strong>
+    support-paypal-security@mailverify-login.com
+
+    <br><br>
+
+    <strong>Subject:</strong>
+    Urgent Account Verification Required
+
+    <br><br>
+
+    Dear User,
+
+    <br><br>
+
+    Your account has been temporarily suspended.
+    Click the link below immediately to verify your account credentials.
+
+  </div>
+
+  <br />
+
+  <button type="button" onclick="showPhishing()">
+    Analyze Email
+  </button>
+
+  <div id="phishingResult" class="cyber-result">
+    Click “Analyze Email” to review the warning signs.
+  </div>
+
+  <hr />
+
+  <!-- MFA Demo -->
+  <h3>Multi-Factor Authentication (MFA) Demo</h3>
+
+  <p>
+    This activity demonstrates how multi-factor authentication helps protect accounts even if a password becomes compromised. Learners can experience the basic idea behind verification codes and account protection workflows used in modern cybersecurity environments.
+  </p>
+
+  <button type="button" onclick="generateCode()">
+    Generate Verification Code
+  </button>
+
+  <div id="mfaBox" class="cyber-result dark">
+    Click the button above to generate a secure verification code.
+  </div>
+
+  <br />
+
+  <input type="text" id="userCode" placeholder="Enter verification code" />
+
+  <button type="button" onclick="verifyCode()">
+    Verify Code
+  </button>
+
+  <div id="verifyResult" class="cyber-result">
+    Waiting for verification...
+  </div>
+
 </section>
+
+<!-- JavaScript -->
+<script>
+
+  /* Password Checker */
+  function checkPassword() {
+
+    const password =
+      document.getElementById("passwordInput").value;
+
+    const result =
+      document.getElementById("passwordResult");
+
+    if (password.length === 0) {
+
+      result.innerHTML =
+        "Please enter a password first.";
+
+      return;
+    }
+
+    if (password.length < 8) {
+
+      result.innerHTML =
+        "❌ <strong>Weak Password</strong><br><br>" +
+        "Reason: Password is too short.";
+
+    }
+    else if (
+      !/[A-Z]/.test(password) ||
+      !/[0-9]/.test(password)
+    ) {
+
+      result.innerHTML =
+        "⚠️ <strong>Moderate Password</strong><br><br>" +
+        "Suggestion: Add uppercase letters and numbers.";
+
+    }
+    else {
+
+      result.innerHTML =
+        "✅ <strong>Strong Password</strong><br><br>" +
+        "This password uses better complexity and security practices.";
+    }
+  }
+
+  /* Phishing Detector */
+  function showPhishing() {
+
+    document.getElementById("phishingResult").innerHTML =
+
+      "⚠️ <strong>Suspicious Indicators Detected:</strong><br><br>" +
+
+      "• Unusual sender domain<br>" +
+      "• Urgent language designed to pressure the user<br>" +
+      "• Requests account credential verification<br>" +
+      "• Possible spoofed branding attempt<br><br>" +
+
+      "<strong>Conclusion:</strong> This email should be treated as a likely phishing attempt.";
+  }
+
+  /* MFA Demo */
+  let currentCode = "";
+
+  function generateCode() {
+
+    currentCode =
+      Math.floor(100000 + Math.random() * 900000).toString();
+
+    document.getElementById("mfaBox").innerHTML =
+
+      "<strong>Generated MFA Code:</strong><br><br>" +
+      currentCode;
+
+    document.getElementById("verifyResult").innerHTML =
+      "Enter the verification code above.";
+  }
+
+  function verifyCode() {
+
+    const userInput =
+      document.getElementById("userCode").value;
+
+    if (
+      userInput === currentCode &&
+      currentCode !== ""
+    ) {
+
+      document.getElementById("verifyResult").innerHTML =
+
+        "✅ <strong>Verification Successful</strong><br><br>" +
+        "The MFA code matched successfully.";
+
+    } else {
+
+      document.getElementById("verifyResult").innerHTML =
+
+        "❌ <strong>Verification Failed</strong><br><br>" +
+        "Incorrect verification code entered.";
+    }
+  }
+
+</script>
+
+
+						
 
 <!-- Chatbase Chat Bubble Embed -->
 <script>
