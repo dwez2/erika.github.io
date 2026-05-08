@@ -183,22 +183,68 @@
 
 </body>
 
-<!-- Preformatted Code -->
-<h2>Dice Roll Guessing Game: Predicting Luck with Python!</h2>
-<pre><code>import random
 
-# Generate a random number from 1 to 6 (simulating a dice roll)
-dice_roll = random.randint(1, 6)
-	
-# Ask the user to guess the number
-user_guess = int(input("Guess the number (between 1 and 6): "))
-	
-# Check if the user's guess is correct
-if user_guess == dice_roll:
-print("Congratulations! You guessed it right!")
-else:
-print(f"Oops, the dice showed {dice_roll}. Better luck next time!")
-</code></pre>
+<hr />
+
+	<!-- This is what replaced the roll the dice thing --> 					
+<section class="cyber-demo">
+  <h2>Interactive Cybersecurity Mini-Lab</h2>
+
+  <p>
+    This small demo shows how IT and cybersecurity teams review logs to identify normal activity,
+    failed login attempts, suspicious behavior, and possible security alerts.
+  </p>
+
+  <div class="cyber-buttons">
+    <button onclick="showLog('normal')">Normal Activity</button>
+    <button onclick="showLog('failed')">Failed Login</button>
+    <button onclick="showLog('suspicious')">Suspicious IP</button>
+    <button onclick="showLog('malware')">Malware Alert</button>
+  </div>
+
+  <div class="cyber-output" id="logOutput">
+    <strong>Select a log event above to review it.</strong>
+  </div>
+</section>
+
+<script>
+  function showLog(type) {
+    const output = document.getElementById("logOutput");
+
+    if (type === "normal") {
+      output.innerHTML = `
+        <strong>Status: Normal Activity</strong><br><br>
+        Log: User successfully logged in from a trusted device.<br><br>
+        <strong>What this means:</strong> This activity appears normal. No immediate action is needed.
+      `;
+    }
+
+    if (type === "failed") {
+      output.innerHTML = `
+        <strong>Status: Failed Login Attempt</strong><br><br>
+        Log: Multiple failed login attempts detected for the same user account.<br><br>
+        <strong>What this means:</strong> This could be a forgotten password, but repeated failures may indicate brute-force activity.
+      `;
+    }
+
+    if (type === "suspicious") {
+      output.innerHTML = `
+        <strong>Status: Suspicious IP Activity</strong><br><br>
+        Log: Login attempt detected from an unusual location or unknown IP address.<br><br>
+        <strong>What this means:</strong> This should be reviewed to confirm whether the activity is legitimate or unauthorized.
+      `;
+    }
+
+    if (type === "malware") {
+      output.innerHTML = `
+        <strong>Status: Possible Malware Alert</strong><br><br>
+        Log: Endpoint protection detected suspicious file behavior on a workstation.<br><br>
+        <strong>What this means:</strong> The system should be isolated, investigated, and scanned before returning to normal use.
+      `;
+    }
+  }
+</script>
+						
 
 							</section>
 
