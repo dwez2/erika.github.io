@@ -216,7 +216,91 @@
 
 
 
+<hr />
 
+
+<!--This is the false/postives section --> 						
+
+						
+<section class="post">
+
+  <header class="major">
+    <h2>Interactive Security Alert Accuracy Demo</h2>
+    <p>
+      This activity helps explain the difference between true positives, false positives,
+      true negatives, and false negatives in cybersecurity monitoring.
+    </p>
+  </header>
+
+  <div class="alert-demo">
+
+    <h3>Choose a scenario:</h3>
+
+    <button type="button" onclick="showAlertType('truePositive')">
+      Malware Detected Correctly
+    </button>
+
+    <button type="button" onclick="showAlertType('falsePositive')">
+      Safe File Flagged as Malware
+    </button>
+
+    <button type="button" onclick="showAlertType('trueNegative')">
+      Safe Activity Ignored Correctly
+    </button>
+
+    <button type="button" onclick="showAlertType('falseNegative')">
+      Malware Missed by Tool
+    </button>
+
+    <div id="alertResult" class="cyber-result dark">
+      Select a scenario to see what type of result it represents.
+    </div>
+
+  </div>
+
+</section>
+
+<script>
+  function showAlertType(type) {
+    const result = document.getElementById("alertResult");
+
+    if (type === "truePositive") {
+      result.innerHTML = `
+        ✅ <strong>True Positive</strong><br><br>
+        <strong>What happened:</strong> The security tool detected malware, and malware was actually present.<br><br>
+        <strong>Simple meaning:</strong> The tool was correct when it raised an alert.<br><br>
+        <strong>Example:</strong> Antivirus detects a real malicious file.
+      `;
+    }
+
+    if (type === "falsePositive") {
+      result.innerHTML = `
+        ⚠️ <strong>False Positive</strong><br><br>
+        <strong>What happened:</strong> The security tool flagged something as dangerous, but it was actually safe.<br><br>
+        <strong>Simple meaning:</strong> The tool raised an alert by mistake.<br><br>
+        <strong>Example:</strong> Antivirus blocks a safe program because it looks suspicious.
+      `;
+    }
+
+    if (type === "trueNegative") {
+      result.innerHTML = `
+        ✅ <strong>True Negative</strong><br><br>
+        <strong>What happened:</strong> The activity was safe, and the security tool correctly ignored it.<br><br>
+        <strong>Simple meaning:</strong> Nothing bad happened, and the tool correctly stayed quiet.<br><br>
+        <strong>Example:</strong> A normal login happens and no alert is generated.
+      `;
+    }
+
+    if (type === "falseNegative") {
+      result.innerHTML = `
+        ❌ <strong>False Negative</strong><br><br>
+        <strong>What happened:</strong> Malware or suspicious activity happened, but the security tool missed it.<br><br>
+        <strong>Simple meaning:</strong> Something bad happened, but no alert was raised.<br><br>
+        <strong>Example:</strong> Malware runs on a computer, but antivirus does not detect it.
+      `;
+    }
+  }
+</script>
 						
 
 						
