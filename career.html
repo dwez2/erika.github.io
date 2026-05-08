@@ -323,43 +323,70 @@
 
 <hr />
 
-<section class="scanner-demo">
+<!--Cool network scanner section will go here  -->  
 
+
+	<hr />
+
+<section class="scanner-demo">
   <h2>Interactive Port Scanner Demo</h2>
 
   <p>
-    This demo simulates how IT and cybersecurity professionals identify
-    open network services running on systems.
+    This safe demo simulates how IT and cybersecurity professionals check common ports
+    to understand what services may be running on a system.
   </p>
 
-  <input type="text" id="targetIP" placeholder="Enter IP Address" value="192.168.1.1">
-
-  <button onclick="scanPorts()">Scan Ports</button>
-
-  <div id="scanResults" class="scan-results">
-    Waiting for scan...
+  <div class="scanner-controls">
+    <input type="text" id="targetIP" placeholder="Enter IP address" value="192.168.1.1" />
+    <button type="button" onclick="scanPorts()">Scan Ports</button>
   </div>
 
+  <div id="scanResults" class="scan-results">
+    Enter an IP address and click “Scan Ports” to begin.
+  </div>
 </section>
 
 <script>
-function scanPorts() {
+  function scanPorts() {
+    const target = document.getElementById("targetIP").value.trim();
+    const results = document.getElementById("scanResults");
 
-  const results = document.getElementById("scanResults");
+    if (target === "") {
+      results.innerHTML = "Please enter an IP address first.";
+      return;
+    }
 
-  results.innerHTML = `
-    <strong>Scanning Target:</strong> 192.168.1.1<br><br>
+    const ports = [
+      { port: 22, service: "SSH", status: "OPEN", note: "Remote administration service detected." },
+      { port: 80, service: "HTTP", status: "OPEN", note: "Web service detected." },
+      { port: 443, service: "HTTPS", status: "OPEN", note: "Secure web traffic detected." },
+      { port: 3389, service: "RDP", status: "CLOSED", note: "Remote Desktop is not accessible." },
+      { port: 445, service: "SMB", status: "FILTERED", note: "File sharing traffic appears restricted." }
+    ];
 
-    Port 22 (SSH): <span style="color:limegreen;">OPEN</span><br>
-    Port 80 (HTTP): <span style="color:limegreen;">OPEN</span><br>
-    Port 443 (HTTPS): <span style="color:limegreen;">OPEN</span><br>
-    Port 3389 (RDP): <span style="color:red;">CLOSED</span><br><br>
+    let output = `<strong>Scanning Target:</strong> ${target}<br><br>`;
 
-    <strong>Analysis:</strong><br>
-    Secure web traffic detected. Remote desktop access is disabled.
-  `;
-}
+    ports.forEach(item => {
+      let color = item.status === "OPEN" ? "#3fb950" : item.status === "CLOSED" ? "#ff6b6b" : "#f0c674";
+
+      output += `
+        Port ${item.port} (${item.service}):
+        <span style="color:${color}; font-weight:bold;">${item.status}</span><br>
+        <small>${item.note}</small><br><br>
+      `;
+    });
+
+    output += `
+      <strong>Analysis:</strong><br>
+      This simulated scan shows how open ports can reveal services running on a system.
+      In real environments, IT and cybersecurity teams review these results to reduce risk,
+      harden systems, and verify only necessary services are exposed.
+    `;
+
+    results.innerHTML = output;
+  }
 </script>
+								
 								
 								
 								
