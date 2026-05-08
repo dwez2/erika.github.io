@@ -320,6 +320,47 @@
 <hr />
 
 
+
+<hr />
+
+<section class="scanner-demo">
+
+  <h2>Interactive Port Scanner Demo</h2>
+
+  <p>
+    This demo simulates how IT and cybersecurity professionals identify
+    open network services running on systems.
+  </p>
+
+  <input type="text" id="targetIP" placeholder="Enter IP Address" value="192.168.1.1">
+
+  <button onclick="scanPorts()">Scan Ports</button>
+
+  <div id="scanResults" class="scan-results">
+    Waiting for scan...
+  </div>
+
+</section>
+
+<script>
+function scanPorts() {
+
+  const results = document.getElementById("scanResults");
+
+  results.innerHTML = `
+    <strong>Scanning Target:</strong> 192.168.1.1<br><br>
+
+    Port 22 (SSH): <span style="color:limegreen;">OPEN</span><br>
+    Port 80 (HTTP): <span style="color:limegreen;">OPEN</span><br>
+    Port 443 (HTTPS): <span style="color:limegreen;">OPEN</span><br>
+    Port 3389 (RDP): <span style="color:red;">CLOSED</span><br><br>
+
+    <strong>Analysis:</strong><br>
+    Secure web traffic detected. Remote desktop access is disabled.
+  `;
+}
+</script>
+								
 								
 								
 	<!-- Chatbase Chat Bubble Embed -->
