@@ -15,75 +15,535 @@
 	</head>
 	<body class="is-preload">
 
-<body class="is-preload">
+
   <div id="wrapper" class="fade-in">
 
   
-<!-- Intro -->
-<div id="intro">
+<!-- =========================================================
+     TECH WITH ERIKA - PROFESSIONAL CYBER HERO
+========================================================== -->
 
-  <h1>Erika Hernandez</h1>
+<style>
+  #professional-hero {
+    position: relative;
+    min-height: 92vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 7rem 2rem 5rem;
+    background:
+      radial-gradient(circle at 20% 20%, rgba(75, 38, 130, 0.28), transparent 35%),
+      radial-gradient(circle at 80% 70%, rgba(44, 255, 114, 0.07), transparent 32%),
+      linear-gradient(135deg, #080a0f 0%, #10131a 48%, #090b10 100%);
+    color: #fff;
+  }
 
-  <h2>
-    IT & Cybersecurity Leader | Infrastructure, Security & Service Delivery
-  </h2>
+  #portfolio-matrix {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.17;
+    z-index: 0;
+    pointer-events: none;
+  }
 
-  <p>
-    I help organizations modernize IT operations, strengthen cybersecurity posture, and build scalable technology environments that support business growth.
-    
-    <br><br>
+  #professional-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+    background-size: 50px 50px;
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent);
+    mask-image: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent);
+    pointer-events: none;
+  }
 
-    With 6+ years of experience across healthcare, education, and enterprise environments, I’ve led infrastructure modernization projects, compliance initiatives, service delivery improvements, and multi-site IT operations supporting 60+ locations and hundreds of users.
+  #professional-hero::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: -5px;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(44,255,114,0.15),
+      rgba(112,255,157,0.9),
+      rgba(44,255,114,0.15),
+      transparent
+    );
+    box-shadow:
+      0 0 8px rgba(44,255,114,0.5),
+      0 0 20px rgba(44,255,114,0.2);
+    animation: portfolioScan 8s linear infinite;
+    pointer-events: none;
+  }
 
-    <br><br>
+  @keyframes portfolioScan {
+    0% { top: 0%; opacity: 0; }
+    10% { opacity: 0.7; }
+    90% { opacity: 0.7; }
+    100% { top: 100%; opacity: 0; }
+  }
 
-    My background combines cybersecurity, systems administration, IT leadership, and workforce development — bridging technical execution with executive communication and operational strategy.
+  .professional-hero-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 1100px;
+    text-align: center;
+  }
 
-    <br><br>
+  .portfolio-status-bar {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 2.5rem;
+    padding: 0.65rem 1.1rem;
+    border: 1px solid rgba(44,255,114,0.3);
+    border-radius: 100px;
+    background: rgba(5,15,10,0.7);
+    box-shadow:
+      inset 0 0 1rem rgba(44,255,114,0.03),
+      0 0 1.2rem rgba(44,255,114,0.07);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    font-family: "Courier New", Courier, monospace;
+  }
 
-    I specialize in:
-    <br>
-    • IT Operations & Infrastructure
-    <br>
-    • Cybersecurity & Risk Management
-    <br>
-    • Service Desk & Process Improvement
-    <br>
-    • Compliance (SOX, HIPAA, ITGC)
-    <br>
-    • Team Leadership & Technical Training
-    <br>
-    • Vendor & Project Management
+  .portfolio-status-dot {
+    width: 10px;
+    height: 10px;
+    flex: 0 0 auto;
+    border-radius: 50%;
+    background: #2cff72;
+    box-shadow:
+      0 0 6px #2cff72,
+      0 0 15px rgba(44,255,114,0.8);
+    animation: portfolioPulse 1.8s ease-in-out infinite;
+  }
 
-    <br><br>
+  @keyframes portfolioPulse {
+    0%, 100% { opacity: 0.55; transform: scale(0.8); }
+    50% { opacity: 1; transform: scale(1.05); }
+  }
 
-    <strong>Master’s in Cybersecurity | Instructor at Weber State University | Former Director of IT & Security</strong>
+  .portfolio-status-text {
+    color: #70ff9d;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12rem;
+  }
 
-    <br><br>
+  .portfolio-clock {
+    color: rgba(255,255,255,0.55);
+    font-size: 0.68rem;
+    letter-spacing: 0.04rem;
+    white-space: nowrap;
+  }
 
-    <a href="career.html" class="button large">
-      View Experience
+  .professional-eyebrow {
+    margin-bottom: 1rem;
+    color: #70ff9d;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.25rem;
+    text-transform: uppercase;
+  }
+
+  #professional-hero h1 {
+    margin-bottom: 0.5rem;
+    color: #fff;
+    font-size: clamp(3rem, 8vw, 6.3rem);
+    letter-spacing: 0.08rem;
+    line-height: 1;
+    text-shadow: 0 0 30px rgba(75,38,130,0.25);
+  }
+
+  .professional-title {
+    margin-bottom: 1.6rem;
+    color: rgba(255,255,255,0.88);
+    font-size: clamp(1rem, 2vw, 1.35rem);
+    font-weight: 600;
+    letter-spacing: 0.06rem;
+  }
+
+  .professional-description {
+    max-width: 760px;
+    margin: 0 auto 2rem;
+    color: rgba(255,255,255,0.72);
+    font-size: 1rem;
+    line-height: 1.9;
+  }
+
+  .professional-terminal {
+    margin-bottom: 2.2rem;
+    color: #70ff9d;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 0.9rem;
+  }
+
+  .terminal-arrow {
+    margin-right: 0.4rem;
+    color: rgba(255,255,255,0.45);
+  }
+
+  .terminal-cursor {
+    display: inline-block;
+    width: 8px;
+    height: 1rem;
+    margin-left: 5px;
+    vertical-align: middle;
+    background: #70ff9d;
+    animation: cursorBlink 1s steps(1) infinite;
+  }
+
+  @keyframes cursorBlink {
+    50% { opacity: 0; }
+  }
+
+  .professional-actions {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 3.5rem;
+  }
+
+  .professional-actions a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 190px;
+    padding: 0.9rem 1.5rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.08rem;
+    text-transform: uppercase;
+    transition:
+      transform 0.25s ease,
+      box-shadow 0.25s ease,
+      background 0.25s ease;
+  }
+
+  .hero-primary {
+    border: 1px solid #fff;
+    background: #fff;
+    color: #11151c !important;
+  }
+
+  .hero-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(255,255,255,0.15);
+  }
+
+  .hero-secure {
+    border: 1px solid rgba(44,255,114,0.55);
+    background: rgba(5,25,14,0.65);
+    color: #70ff9d !important;
+    box-shadow: inset 0 0 1rem rgba(44,255,114,0.04);
+  }
+
+  .hero-secure:hover {
+    border-color: #70ff9d;
+    background: rgba(8,40,22,0.85);
+    transform: translateY(-3px);
+    box-shadow:
+      0 0 12px rgba(44,255,114,0.35),
+      0 0 30px rgba(44,255,114,0.12);
+  }
+
+  .professional-status-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0,1fr));
+    gap: 1rem;
+    margin: 0 auto;
+    max-width: 1000px;
+  }
+
+  .professional-status-card {
+    position: relative;
+    padding: 1.4rem 1rem;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 6px;
+    background: rgba(10,14,20,0.72);
+    box-shadow: 0 1rem 2rem rgba(0,0,0,0.2);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    text-align: left;
+    transition:
+      transform 0.25s ease,
+      border-color 0.25s ease,
+      box-shadow 0.25s ease;
+  }
+
+  .professional-status-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(112,255,157,0.42);
+    box-shadow:
+      0 1rem 2.5rem rgba(0,0,0,0.32),
+      0 0 1.2rem rgba(44,255,114,0.07);
+  }
+
+  .status-card-label {
+    display: block;
+    margin-bottom: 0.55rem;
+    color: rgba(255,255,255,0.45);
+    font-family: "Courier New", Courier, monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.1rem;
+  }
+
+  .status-card-value {
+    display: block;
+    margin-bottom: 0.4rem;
+    color: #fff;
+    font-size: 0.95rem;
+    font-weight: 700;
+  }
+
+  .status-card-state {
+    color: #70ff9d;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 0.7rem;
+  }
+
+  .secure-card {
+    border-color: rgba(75,38,130,0.6);
+  }
+
+  .secure-card .status-card-state {
+    color: #c7a7ff;
+  }
+
+  .hero-scroll {
+    display: inline-block;
+    margin-top: 3rem;
+    color: rgba(255,255,255,0.4) !important;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.12rem;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  .hero-scroll:hover {
+    color: #70ff9d !important;
+  }
+
+  @media screen and (max-width: 900px) {
+    .professional-status-grid {
+      grid-template-columns: repeat(2, minmax(0,1fr));
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    #professional-hero {
+      min-height: auto;
+      padding: 5rem 1.2rem 4rem;
+    }
+
+    .portfolio-status-bar {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .professional-status-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .professional-actions {
+      flex-direction: column;
+    }
+
+    .professional-actions a {
+      width: 100%;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    #professional-hero::after,
+    .portfolio-status-dot,
+    .terminal-cursor {
+      animation: none;
+    }
+  }
+</style>
+
+<section id="professional-hero">
+  <canvas id="portfolio-matrix" aria-hidden="true"></canvas>
+
+  <div class="professional-hero-content">
+
+    <div class="portfolio-status-bar">
+      <span class="portfolio-status-dot" aria-hidden="true"></span>
+      <span class="portfolio-status-text">PORTFOLIO ONLINE</span>
+      <span class="portfolio-clock" id="portfolio-clock">LOCAL TIME LOADING</span>
+    </div>
+
+    <div class="professional-eyebrow">
+      IT OPERATIONS // CYBERSECURITY // LEADERSHIP
+    </div>
+
+    <h1>Erika Hernandez</h1>
+
+    <div class="professional-title">
+      IT &amp; Cybersecurity Leader | Infrastructure, Security &amp; Service Delivery
+    </div>
+
+    <p class="professional-description">
+      I help organizations strengthen cybersecurity, modernize IT operations,
+      and build scalable technology environments that support people and business growth.
+      My experience spans enterprise infrastructure, multi-site IT operations,
+      cybersecurity, compliance, technical leadership, and higher education.
+    </p>
+
+    <div class="professional-terminal">
+      <span class="terminal-arrow">&gt;</span>
+      Secure systems. Strong teams. Scalable solutions.
+      <span class="terminal-cursor" aria-hidden="true"></span>
+    </div>
+
+    <div class="professional-actions">
+      <a href="career.html" class="hero-primary">View Experience</a>
+
+      <!-- Connect this to secure.html after the secure portfolio is built. -->
+      <a href="#" class="hero-secure" onclick="return false;" title="Secure portfolio coming soon">
+        &#128274; Secure Portfolio
+      </a>
+    </div>
+
+    <div class="professional-status-grid">
+
+      <div class="professional-status-card">
+        <span class="status-card-label">CYBERSECURITY</span>
+        <span class="status-card-value">Security &amp; Risk</span>
+        <span class="status-card-state">&#9679; ACTIVE FOCUS</span>
+      </div>
+
+      <div class="professional-status-card">
+        <span class="status-card-label">IT LEADERSHIP</span>
+        <span class="status-card-value">Operations &amp; Strategy</span>
+        <span class="status-card-state">&#9679; 6+ YEARS</span>
+      </div>
+
+      <div class="professional-status-card">
+        <span class="status-card-label">EDUCATION</span>
+        <span class="status-card-value">Cybersecurity Instructor</span>
+        <span class="status-card-state">&#9679; ACTIVE</span>
+      </div>
+
+      <div class="professional-status-card secure-card">
+        <span class="status-card-label">SECURE PORTFOLIO</span>
+        <span class="status-card-value">Extended Case Studies</span>
+        <span class="status-card-state">&#128274; RESTRICTED</span>
+      </div>
+
+    </div>
+
+    <a href="#header" class="hero-scroll scrolly">
+      &#8595; Explore Professional Profile
     </a>
 
-  </p>
+  </div>
+</section>
 
-</div>
+<script>
+  function updatePortfolioClock() {
+    const clock = document.getElementById("portfolio-clock");
+    if (!clock) return;
 
-<!-- Video Section -->
-<div style="text-align: center; margin-top: 2rem;">
-  <video width="50%" height="auto" autoplay loop muted controls>
-    <source src="images/About Me.mp4" type="video/mp4" />
-    Your browser does not support the video tag.
-  </video>
-</div>
+    const now = new Date();
+    const time = now.toLocaleTimeString("en-US", {
+      hour: "numeric",
+      minute: "2-digit",
+      second: "2-digit"
+    });
 
-<!-- Optional HR: Remove if not needed -->
-<!-- <hr style="margin-top: 2rem;"> -->
+    clock.textContent = "LOCAL TIME " + time;
+  }
 
-<!-- Scroll Button -->
-<ul class="actions" style="margin-top: 2rem; text-align: center;">
-  <li><a href="#header" class="button icon solid solo fa-arrow-down scrolly">Continue</a></li>
-</ul>
+  updatePortfolioClock();
+  setInterval(updatePortfolioClock, 1000);
+</script>
+
+<script>
+  (function () {
+    const canvas = document.getElementById("portfolio-matrix");
+    const hero = document.getElementById("professional-hero");
+
+    if (!canvas || !hero) return;
+
+    const ctx = canvas.getContext("2d");
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    let width;
+    let height;
+    let columns;
+    let drops;
+
+    const fontSize = 16;
+    const characters = "01ABCDEF<>[]{}:/\|$#@+-";
+
+    function resizeMatrix() {
+      width = canvas.width = hero.offsetWidth;
+      height = canvas.height = hero.offsetHeight;
+      columns = Math.floor(width / fontSize);
+
+      drops = new Array(columns)
+        .fill(1)
+        .map(function () {
+          return Math.floor(Math.random() * (height / fontSize));
+        });
+    }
+
+    function drawMatrix() {
+      ctx.fillStyle = "rgba(8,10,15,0.075)";
+      ctx.fillRect(0, 0, width, height);
+
+      ctx.fillStyle = "#70ff9d";
+      ctx.font = fontSize + "px Courier New";
+
+      for (let i = 0; i < drops.length; i++) {
+        const character = characters[
+          Math.floor(Math.random() * characters.length)
+        ];
+
+        ctx.fillText(
+          character,
+          i * fontSize,
+          drops[i] * fontSize
+        );
+
+        if (
+          drops[i] * fontSize > height &&
+          Math.random() > 0.975
+        ) {
+          drops[i] = 0;
+        }
+
+        drops[i]++;
+      }
+    }
+
+    resizeMatrix();
+    window.addEventListener("resize", resizeMatrix);
+
+    if (reducedMotion) {
+      drawMatrix();
+    } else {
+      setInterval(drawMatrix, 65);
+    }
+  })();
+</script>
 
 <!-- Header -->
 <header id="header">
@@ -440,14 +900,12 @@ function runSecurityScan() {
 (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="iMbCDAlvqlZg0IMqmuEpO";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
 </script>
 
-</body>
-
 			<!-- Pagination -->
 <footer>
 
   <div class="pagination">
 
-    <a href="index.html" class="page">1</a>
+    <span class="page active">1</span>
 
     <a href="Aboutme.html" class="page">2</a>
 
@@ -457,7 +915,7 @@ function runSecurityScan() {
 
     <a href="school.html" class="page">5</a>
 
-    <span class="page active">6</span>
+    <a href="leadership.html" class="page">6</a>
 
     <a href="manager.html" class="page">7</a>
 
@@ -562,8 +1020,6 @@ Email me
 		
 	</body>
 </html>
-
-
 
 
 
