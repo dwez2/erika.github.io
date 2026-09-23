@@ -234,15 +234,26 @@
   }
 
   .hero-primary {
-    border: 1px solid #fff;
-    background: #fff;
-    color: #11151c !important;
-  }
+  border: 1px solid rgba(170, 125, 255, 0.65);
+  background: rgba(75, 38, 130, 0.38);
+  color: #e6d8ff !important;
 
-  .hero-primary:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 30px rgba(255,255,255,0.15);
-  }
+  box-shadow:
+    inset 0 0 1rem rgba(140, 90, 220, 0.08),
+    0 0 1rem rgba(75, 38, 130, 0.12);
+}
+
+.hero-primary:hover {
+  border-color: #c7a7ff;
+  background: rgba(75, 38, 130, 0.65);
+  color: #ffffff !important;
+
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 0 12px rgba(170, 125, 255, 0.32),
+    0 0 30px rgba(75, 38, 130, 0.22);
+}
 
   .hero-secure {
     border: 1px solid rgba(44,255,114,0.55);
