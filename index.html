@@ -16,21 +16,105 @@
   .twe-tv-name {
     position: relative; display: inline-block; isolation: isolate;
     margin-top: 1.55rem; max-width: 100%; overflow-wrap: anywhere;
-    text-shadow: -2px 0 rgba(75,232,255,.53), 2px 0 rgba(220,111,255,.55), 0 0 24px rgba(116,85,255,.38);
+    text-shadow: none;
   }
-  .twe-tv-name::before {
-    content: ""; position: absolute; z-index: -1; inset: -.1em -.08em;
-    background: repeating-linear-gradient(transparent 0 3px, rgba(114,238,255,.12) 3px 4px),
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='90'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-    mask-image: radial-gradient(ellipse, #000 20%, transparent 75%);
-    opacity: .22; pointer-events: none;
+  .twe-crt-title {
+  	position: relative;
+  	display: inline-block;
+  	isolation: isolate;
+  	animation: twe-title-signal-flicker 5.8s steps(1, end) infinite;
   }
-  .twe-tv-name:hover::before { animation: twe-tv-tune .55s steps(4,end) 1; }
-  @keyframes twe-tv-tune {
-    0%, 100% { opacity: .22; background-position: 0 0; }
-    50% { opacity: .46; background-position: 0 9px; }
+
+  .twe-crt-title::before,
+  .twe-crt-title::after {
+  	content: attr(data-text) / "";
+  	position: absolute;
+  	inset: 0;
+  	z-index: 1;
+  	opacity: 0;
+  	pointer-events: none;
   }
-  .twe-tv-antenna { position: absolute; left: 50%; bottom: calc(100% + .18rem); width: 42px; height: 24px; transform: translateX(-50%); color: #8ffbe8; filter: drop-shadow(0 0 5px #60dfff); pointer-events: none; }
+
+  .twe-crt-title::before {
+  	color: #70ff9d;
+  	text-shadow: none;
+  	animation: twe-title-static-left 5.8s steps(1, end) infinite;
+  }
+
+  .twe-crt-title::after {
+  	color: #8fffee;
+  	text-shadow: none;
+  	animation: twe-title-static-right 5.8s steps(1, end) infinite;
+  }
+
+  @keyframes twe-title-signal-flicker {
+  	0%, 86%, 88%, 91%, 94%, 100% {
+  		opacity: 1;
+  		filter: none;
+  		transform: translate(0);
+  	}
+  	87% {
+  		opacity: 0.72;
+  		filter: contrast(1.45) brightness(1.25);
+  		transform: translateX(1px);
+  	}
+  	89% {
+  		opacity: 0.92;
+  		filter: contrast(1.2);
+  		transform: translateX(-1px);
+  	}
+  	92% {
+  		opacity: 0.78;
+  		filter: brightness(1.38);
+  		transform: translate(1px, -1px);
+  	}
+  }
+
+  @keyframes twe-title-static-left {
+  	0%, 86%, 94%, 100% {
+  		opacity: 0;
+  		transform: translate(0);
+  		clip-path: inset(0 0 100% 0);
+  	}
+  	87% {
+  		opacity: 0.78;
+  		transform: translate(-4px, 1px);
+  		clip-path: inset(8% 0 66% 0);
+  	}
+  	89% {
+  		opacity: 0.55;
+  		transform: translate(3px, -1px);
+  		clip-path: inset(45% 0 34% 0);
+  	}
+  	92% {
+  		opacity: 0.72;
+  		transform: translate(-2px, 1px);
+  		clip-path: inset(72% 0 12% 0);
+  	}
+  }
+
+  @keyframes twe-title-static-right {
+  	0%, 86%, 94%, 100% {
+  		opacity: 0;
+  		transform: translate(0);
+  		clip-path: inset(100% 0 0 0);
+  	}
+  	88% {
+  		opacity: 0.68;
+  		transform: translate(4px, -1px);
+  		clip-path: inset(24% 0 57% 0);
+  	}
+  	90% {
+  		opacity: 0.5;
+  		transform: translate(-3px, 1px);
+  		clip-path: inset(58% 0 19% 0);
+  	}
+  	93% {
+  		opacity: 0.64;
+  		transform: translate(2px);
+  		clip-path: inset(4% 0 78% 0);
+  	}
+  }
   #main > .twe-theme-bar {
     display: flex; align-items: center; justify-content: flex-end; gap: .75rem;
     flex-wrap: wrap; padding: .7rem clamp(.8rem, 3vw, 2rem); border-top: 0;
@@ -38,13 +122,31 @@
   }
   #main .twe-theme-bar[hidden] { display: none; }
   .twe-theme-label { font: 700 .76rem/1.4 system-ui, sans-serif; letter-spacing: .08em; text-transform: uppercase; }
-  #main .twe-theme-bar button {
-    font: 700 .78rem/1.2 system-ui, sans-serif; text-transform: none;
-    letter-spacing: .02em; height: auto; min-height: 2.65rem; padding: .6rem .85rem;
-    border-radius: .35rem; border: 1px solid #697485; box-shadow: none;
-    background: #fff; color: #212931 !important;
+  .twe-theme-options {
+    display: inline-flex; padding: .23rem; gap: .2rem; border-radius: 999px;
+    background: #e7ebf2; border: 1px solid #d3dbe7;
+    box-shadow: inset 0 1px 3px #34486416;
   }
-  #main .twe-theme-bar button[aria-pressed="true"] { background: #222d3a; color: #fff !important; }
+  #main .twe-theme-options button {
+    display: inline-flex; align-items: center; justify-content: center; gap: .35rem;
+    font: 700 .78rem/1.2 system-ui, sans-serif; text-transform: none;
+    letter-spacing: .01em; min-height: 44px; height: auto; padding: .45rem .76rem;
+    border: 1px solid transparent; border-radius: 999px; box-shadow: none;
+    background: transparent; color: #344358 !important; cursor: pointer;
+    transition: background .18s, box-shadow .18s, transform .18s;
+  }
+  .twe-theme-options svg {
+    width: 1rem; height: 1rem; fill: none; stroke: currentColor;
+    stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round;
+  }
+  #main .twe-theme-options button[aria-pressed="true"] {
+    background: #fff; border-color: #d6dfeb; color: #182537 !important;
+    box-shadow: 0 2px 5px #233a5726;
+  }
+  #main .twe-theme-options button:hover {
+    transform: translateY(-1px); background: #f6faff;
+    box-shadow: 0 3px 8px #233a5730;
+  }
   #main a:focus-visible, #main button:focus-visible { outline: 3px solid #627bff; outline-offset: 4px; }
   #main[data-twe-theme="gaming"] {
     color-scheme: dark; color: #e6edf9;
@@ -54,18 +156,44 @@
   }
   #main[data-twe-theme="gaming"] > * { border-color: #354467; }
   #main[data-twe-theme="gaming"] > .twe-theme-bar { background: #11192b; color: #e6edf9; border-bottom-color: #354467; }
-  #main[data-twe-theme="gaming"] .twe-theme-bar button { background: #172238; border-color: #61738b; color: #e6edf9 !important; }
-  #main[data-twe-theme="gaming"] .twe-theme-bar button[aria-pressed="true"] { color: #0a101c !important; background: #82ffe0; border-color: #82ffe0; }
+  #main[data-twe-theme="gaming"] .twe-theme-options { background: #0a1222; border-color: #354467; }
+  #main[data-twe-theme="gaming"] .twe-theme-options button { color: #c2cee4 !important; }
+  #main[data-twe-theme="gaming"] .twe-theme-options button:hover { background: #23314b; }
+  #main[data-twe-theme="gaming"] .twe-theme-options button[aria-pressed="true"] {
+    color: #a8ffec !important; border-color: #4abcae;
+    background: linear-gradient(135deg, #164237, #282047);
+    box-shadow: 0 0 12px #68f9dd33;
+  }
   #main[data-twe-theme="gaming"] :is(h1,h2,h3,h4,h5,h6,strong,.date) { color: #f0eeff; }
   #main[data-twe-theme="gaming"] header.major > .date::before,
   #main[data-twe-theme="gaming"] header.major > .date::after { border-color: #4a5b7d; }
   #main[data-twe-theme="gaming"] a { color: #91f8e5; border-bottom-color: #6c968e; }
   #main[data-twe-theme="gaming"] a:hover { color: #d9bcff !important; }
-  #main[data-twe-theme="gaming"] :is(.soc-card,.cyber-console,.pagination .active) { color: #e6edf9; background: #121d32; border: 1px solid #485984; }
+  #main[data-twe-theme="gaming"] :is(.soc-card,.cyber-console) { color: #e6edf9; background: #121d32; border: 1px solid #485984; }
   #main[data-twe-theme="gaming"] .status { color: #91f8e5; }
   #main[data-twe-theme="gaming"] .status.warning { color: #ffd28d; }
   #main[data-twe-theme="gaming"] button:not([data-theme-choice]) { color: #91f8e5 !important; box-shadow: inset 0 0 0 2px #528f99; }
-  @media (prefers-reduced-motion: reduce) { .twe-tv-name:hover::before { animation: none; } }
+  #main footer .pagination {
+    display: flex; flex-wrap: wrap; justify-content: center; gap: .4rem; width: auto;
+  }
+  #main footer .pagination .page {
+    display: inline-flex; align-items: center; justify-content: center;
+    min-width: 44px; min-height: 44px; height: auto; line-height: 1;
+    margin: 0; padding: .5rem; border: 1px solid #ccd6e4;
+    border-radius: .55rem; background: #f5f8fc; color: #26354a !important;
+    transition: background .18s, border-color .18s, box-shadow .18s;
+  }
+  #main footer .pagination a.page:hover { background: #e7effb; border-color: #758eb6; color: #162e54 !important; }
+  #main footer .pagination .page.active { background: #24334a; color: #fff !important; border-color: #24334a; }
+  #main[data-twe-theme="gaming"] footer .pagination .page { background: #172238; color: #dfeaff !important; border-color: #4b6186; }
+  #main[data-twe-theme="gaming"] footer .pagination a.page:hover { background: #20334e; color: #b0fff0 !important; border-color: #73daca; box-shadow: 0 0 12px #73daca33; }
+  #main[data-twe-theme="gaming"] footer .pagination .page.active { background: #82ffe0; color: #0a101c !important; border-color: #82ffe0; }
+  @media (prefers-reduced-motion: reduce) {
+    .twe-crt-title, .twe-crt-title::before, .twe-crt-title::after { animation: none; }
+    .twe-crt-title::before, .twe-crt-title::after { display: none; }
+    #main .twe-theme-options button, #main footer .pagination .page { transition: none; }
+    #main .twe-theme-options button:hover { transform: none; }
+  }
 </style>
 </head>
 	<body class="is-preload">
@@ -217,7 +345,7 @@
     font-size: clamp(3rem, 8vw, 6.3rem);
     letter-spacing: 0.08rem;
     line-height: 1;
-    text-shadow: 0 0 30px rgba(75,38,130,0.25);
+    text-shadow: none;
   }
 
   .professional-title {
@@ -678,7 +806,7 @@
       IT OPERATIONS // CYBERSECURITY // LEADERSHIP
     </div>
 
-    <h1><span class="twe-tv-name"><svg class="twe-tv-antenna" viewBox="0 0 42 24" aria-hidden="true" focusable="false"><path d="M21 20 7 5m14 15L35 5M13 22h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="7" cy="5" r="2.5" fill="currentColor"/><circle cx="35" cy="5" r="2.5" fill="currentColor"/></svg>Erika Hernandez</span></h1>
+    <h1><span class="twe-tv-name"><span class="twe-crt-title" data-text="Erika Hernandez">Erika Hernandez</span></span></h1>
 
     <div class="professional-title">
       IT &amp; Cybersecurity Leader | Infrastructure, Security &amp; Service Delivery
@@ -929,8 +1057,10 @@
 					<div id="main" data-twe-theme="light">
   <div class="twe-theme-bar" role="group" aria-label="Professional profile appearance" hidden>
     <span class="twe-theme-label">Profile mode</span>
-    <button type="button" data-theme-choice="light" aria-pressed="true">Light</button>
-    <button type="button" data-theme-choice="gaming" aria-pressed="false">Gaming</button>
+    <div class="twe-theme-options">
+      <button type="button" data-theme-choice="light" aria-pressed="true"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></svg>Light</button>
+      <button type="button" data-theme-choice="gaming" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 7-4 5 4 5m8-10 4 5-4 5m-3-12-2 14"/></svg>Gaming</button>
+    </div>
   </div>
   <script>
     (() => {
@@ -1252,9 +1382,9 @@ function runSecurityScan() {
 			<!-- Pagination -->
 <footer>
 
-  <div class="pagination">
+  <div class="pagination" role="navigation" aria-label="Portfolio pages">
 
-    <span class="page active">1</span>
+    <span class="page active" aria-current="page">1</span>
 
     <a href="Aboutme.html" class="page">2</a>
 
