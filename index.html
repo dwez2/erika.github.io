@@ -12,7 +12,62 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<link rel="stylesheet" href="assets/css/ticker.css?v=1" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-	</head>
+	<style id="twe-visual-updates">
+  .twe-tv-name {
+    position: relative; display: inline-block; isolation: isolate;
+    margin-top: 1.55rem; max-width: 100%; overflow-wrap: anywhere;
+    text-shadow: -2px 0 rgba(75,232,255,.53), 2px 0 rgba(220,111,255,.55), 0 0 24px rgba(116,85,255,.38);
+  }
+  .twe-tv-name::before {
+    content: ""; position: absolute; z-index: -1; inset: -.1em -.08em;
+    background: repeating-linear-gradient(transparent 0 3px, rgba(114,238,255,.12) 3px 4px),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='90'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    mask-image: radial-gradient(ellipse, #000 20%, transparent 75%);
+    opacity: .22; pointer-events: none;
+  }
+  .twe-tv-name:hover::before { animation: twe-tv-tune .55s steps(4,end) 1; }
+  @keyframes twe-tv-tune {
+    0%, 100% { opacity: .22; background-position: 0 0; }
+    50% { opacity: .46; background-position: 0 9px; }
+  }
+  .twe-tv-antenna { position: absolute; left: 50%; bottom: calc(100% + .18rem); width: 42px; height: 24px; transform: translateX(-50%); color: #8ffbe8; filter: drop-shadow(0 0 5px #60dfff); pointer-events: none; }
+  #main > .twe-theme-bar {
+    display: flex; align-items: center; justify-content: flex-end; gap: .75rem;
+    flex-wrap: wrap; padding: .7rem clamp(.8rem, 3vw, 2rem); border-top: 0;
+    background: #f3f5f8; border-bottom: 1px solid #dce0e6; color: #212931;
+  }
+  #main .twe-theme-bar[hidden] { display: none; }
+  .twe-theme-label { font: 700 .76rem/1.4 system-ui, sans-serif; letter-spacing: .08em; text-transform: uppercase; }
+  #main .twe-theme-bar button {
+    font: 700 .78rem/1.2 system-ui, sans-serif; text-transform: none;
+    letter-spacing: .02em; height: auto; min-height: 2.65rem; padding: .6rem .85rem;
+    border-radius: .35rem; border: 1px solid #697485; box-shadow: none;
+    background: #fff; color: #212931 !important;
+  }
+  #main .twe-theme-bar button[aria-pressed="true"] { background: #222d3a; color: #fff !important; }
+  #main a:focus-visible, #main button:focus-visible { outline: 3px solid #627bff; outline-offset: 4px; }
+  #main[data-twe-theme="gaming"] {
+    color-scheme: dark; color: #e6edf9;
+    background: radial-gradient(ellipse at 95% 0, #231739, transparent 42rem),
+      radial-gradient(ellipse at 0 34rem, #102f37, transparent 42rem), #0a101c;
+    box-shadow: 0 0 32px #7650e04d; border: 1px solid #665ba3;
+  }
+  #main[data-twe-theme="gaming"] > * { border-color: #354467; }
+  #main[data-twe-theme="gaming"] > .twe-theme-bar { background: #11192b; color: #e6edf9; border-bottom-color: #354467; }
+  #main[data-twe-theme="gaming"] .twe-theme-bar button { background: #172238; border-color: #61738b; color: #e6edf9 !important; }
+  #main[data-twe-theme="gaming"] .twe-theme-bar button[aria-pressed="true"] { color: #0a101c !important; background: #82ffe0; border-color: #82ffe0; }
+  #main[data-twe-theme="gaming"] :is(h1,h2,h3,h4,h5,h6,strong,.date) { color: #f0eeff; }
+  #main[data-twe-theme="gaming"] header.major > .date::before,
+  #main[data-twe-theme="gaming"] header.major > .date::after { border-color: #4a5b7d; }
+  #main[data-twe-theme="gaming"] a { color: #91f8e5; border-bottom-color: #6c968e; }
+  #main[data-twe-theme="gaming"] a:hover { color: #d9bcff !important; }
+  #main[data-twe-theme="gaming"] :is(.soc-card,.cyber-console,.pagination .active) { color: #e6edf9; background: #121d32; border: 1px solid #485984; }
+  #main[data-twe-theme="gaming"] .status { color: #91f8e5; }
+  #main[data-twe-theme="gaming"] .status.warning { color: #ffd28d; }
+  #main[data-twe-theme="gaming"] button:not([data-theme-choice]) { color: #91f8e5 !important; box-shadow: inset 0 0 0 2px #528f99; }
+  @media (prefers-reduced-motion: reduce) { .twe-tv-name:hover::before { animation: none; } }
+</style>
+</head>
 	<body class="is-preload">
 
 
@@ -623,7 +678,7 @@
       IT OPERATIONS // CYBERSECURITY // LEADERSHIP
     </div>
 
-    <h1>Erika Hernandez</h1>
+    <h1><span class="twe-tv-name"><svg class="twe-tv-antenna" viewBox="0 0 42 24" aria-hidden="true" focusable="false"><path d="M21 20 7 5m14 15L35 5M13 22h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="7" cy="5" r="2.5" fill="currentColor"/><circle cx="35" cy="5" r="2.5" fill="currentColor"/></svg>Erika Hernandez</span></h1>
 
     <div class="professional-title">
       IT &amp; Cybersecurity Leader | Infrastructure, Security &amp; Service Delivery
@@ -645,8 +700,7 @@
     <div class="professional-actions">
       <a href="career.html" class="hero-primary">View Experience</a>
 
-      <!-- Connect this to secure.html after the secure portfolio is built. -->
-      <a href="#" class="hero-secure" onclick="return false;" title="Secure portfolio coming soon">
+      <a href="https://utahtechexperts.com/" class="hero-secure">
         &#128274; Secure Portfolio
       </a>
     </div>
@@ -673,8 +727,8 @@
 
       <div class="professional-status-card secure-card">
         <span class="status-card-label">SECURE PORTFOLIO</span>
-        <span class="status-card-value">Extended Case Studies</span>
-        <span class="status-card-state">&#128274; RESTRICTED</span>
+        <span class="status-card-value">Utah Tech Experts</span>
+        <span class="status-card-state">&#9679; ONLINE</span>
       </div>
 
     </div>
@@ -872,7 +926,33 @@
 </nav>
 
 				<!-- Main -->
-					<div id="main">
+					<div id="main" data-twe-theme="light">
+  <div class="twe-theme-bar" role="group" aria-label="Professional profile appearance" hidden>
+    <span class="twe-theme-label">Profile mode</span>
+    <button type="button" data-theme-choice="light" aria-pressed="true">Light</button>
+    <button type="button" data-theme-choice="gaming" aria-pressed="false">Gaming</button>
+  </div>
+  <script>
+    (() => {
+      const profile = document.getElementById("main");
+      const bar = profile.querySelector(".twe-theme-bar");
+      const buttons = bar.querySelectorAll("[data-theme-choice]");
+      const key = "twe-professional-profile-theme";
+      function applyTheme(theme) {
+        profile.dataset.tweTheme = theme;
+        buttons.forEach(button => button.setAttribute("aria-pressed", String(button.dataset.themeChoice === theme)));
+      }
+      let saved;
+      try { saved = localStorage.getItem(key); } catch {}
+      applyTheme(saved === "gaming" ? "gaming" : "light");
+      buttons.forEach(button => button.addEventListener("click", () => {
+        const theme = button.dataset.themeChoice;
+        applyTheme(theme);
+        try { localStorage.setItem(key, theme); } catch {}
+      }));
+      bar.hidden = false;
+    })();
+  </script>
 
 						<!-- Featured Post -->
 							<article class="post featured">
@@ -1289,7 +1369,6 @@ Email me
 		
 	</body>
 </html>
-
 
 
 
