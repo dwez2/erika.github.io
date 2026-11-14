@@ -2,9 +2,9 @@
 <!--
 	the about section 
 -->
-<html>
+<html lang="en">
 	<head>
-		<title>Hernandez</title>
+		<title>Academic Work | Erika Hernandez</title>
 		<!-- This is for the image on the title bar -->
 		<link rel="icon" href="images/letterHnew.png" type="images/">
 		<meta charset="utf-8" />
@@ -12,7 +12,37 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<link rel="stylesheet" href="assets/css/ticker.css?v=1" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-	</head>
+	<script>
+(function () {
+  var root = document.documentElement;
+  try {
+    var saved = localStorage.getItem('portfolio-theme');
+    if (saved === 'light' || saved === 'dark') root.dataset.academicTheme = saved;
+  } catch (_) {}
+  if (!root.dataset.academicTheme) {
+    root.dataset.academicTheme = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  }
+})();
+</script>
+<style>
+.academic-toolbar { display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:.75rem; margin-bottom:2rem; }
+#academic-theme-toggle[hidden] { display:none; }
+.academic-case { scroll-margin-top:1.5rem; padding:clamp(1rem,3vw,2rem); border:1px solid #809ab4; border-top:4px solid #347bb6; border-radius:.75rem; }
+.academic-kicker { font-weight:700; margin-bottom:.5rem; }
+.academic-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,16rem),1fr)); gap:1rem; margin-bottom:1.5rem; }
+.academic-grid section { border:1px solid #809ab4; border-radius:.5rem; padding:1rem; }
+.academic-grid p { margin-bottom:0; }
+[data-academic-theme="dark"] { color-scheme:dark; }
+[data-academic-theme="light"] { color-scheme:light; }
+[data-academic-theme="dark"] #main, [data-academic-theme="dark"] #footer { background:#111b2a; color:#e4edf7; }
+[data-academic-theme="dark"] #main :is(h1,h2,h3,strong,.date,header p), [data-academic-theme="dark"] #footer :is(h3,p) { color:#e4edf7; }
+[data-academic-theme="dark"] :is(#main,#footer) a { color:#a6dcff; }
+[data-academic-theme="dark"] #main :is(button,.button) { color:#e4edf7 !important; box-shadow:inset 0 0 0 2px #809ab4; }
+[data-academic-theme="dark"] .academic-case { background:#19283c; }
+[data-academic-theme="dark"] #main .date::before, [data-academic-theme="dark"] #main .date::after { border-color:#809ab4; }
+:focus-visible { outline:3px solid #429ad8; outline-offset:4px; }
+</style>
+</head>
 	<body class="is-preload">
 
 		<!-- Wrapper -->
@@ -81,9 +111,13 @@
 <!-- Post -->
 <section class="post">
 
+  <div class="academic-toolbar">
+    <a href="#risk-assessment">Jump to the 2026 case study</a>
+    <button type="button" id="academic-theme-toggle" aria-pressed="false" hidden>Dark mode</button>
+  </div>
   <header class="major">
 
-    <span class="date">Academic | 2021 – 2023</span>
+    <span class="date">Academic | 2021–2023 &amp; 2026–Present</span>
 
     <h2>
       Applying Cybersecurity Concepts Through Real-World Projects and Hands-On Learning
@@ -128,6 +162,29 @@
 
   <hr />
 
+  <article id="risk-assessment" class="academic-case">
+    <p class="academic-kicker">Fall 2026 · Dakota State University · INFA 713</p>
+    <h2>Personal Security Risk Assessment</h2>
+    <p>I assessed five devices on a small home network and presented the results in an executive memo. I built an asset inventory and network diagram, used the desktop Security Risk Assessment (SRA) Tool to document findings, and separated questions specific to healthcare from risks that applied to the network.</p>
+    <div class="academic-grid">
+      <section>
+        <h3>What the assessment looked at</h3>
+        <p>I evaluated whether existing safeguards could protect stored data and whether backups could support recovery after a disruption.</p>
+      </section>
+      <section>
+        <h3>What I recommended</h3>
+        <p>I recommended backing up more often, testing file restores, evaluating drive encryption, and making security monitoring more reliable.</p>
+      </section>
+    </div>
+    <h3>How the CIS Controls help</h3>
+    <p>A risk assessment helps decide what needs attention first. The <a href="https://www.cisecurity.org/controls">CIS Controls</a> give teams concrete safeguards to work toward. Control 1 connects to the asset inventory, Control 3 to protecting stored data, Control 8 to collecting and reviewing logs, and Control 11 to backing up data and testing recovery. These are examples of how the findings map to safeguards.</p>
+    <h3>Why this matters in practice</h3>
+    <p>Using a small network let me practice the same process I would bring to an organization: identify what needs protection, explain the impact if something goes wrong, and give leadership practical next steps. For example, a successful backup job tells me a copy was made. A restore test tells me whether the team can actually recover what it needs.</p>
+    <p><strong>Instructor feedback:</strong> The assessment was commended for identifying assets and associated risks, categorizing risk appropriately, and presenting a strong executive summary for the customer.</p>
+  </article>
+
+  <hr />
+
   <h2>
     CIS Controls & IT Audit Frameworks
   </h2>
@@ -142,7 +199,7 @@
 
   </p>
 
-  <iframe src="images/CIS- Controls- Site.pdf" width="100%" height="1100"></iframe>
+  <p><a class="button" href="images/CIS-%20Controls-%20Site.pdf">View CIS Controls paper</a></p>
 
   <hr />
 
@@ -176,12 +233,12 @@
 
   </p>
 
-  <iframe src="images/Finding Vulnerability Nessus Assignment Summer- Erika Hernandez.pdf" width="100%" height="1100"></iframe>
+  <p><a class="button" href="images/Finding%20Vulnerability%20Nessus%20Assignment%20Summer-%20Erika%20Hernandez.pdf">View Nessus lab report</a></p>
 
   <hr />
 
   <div class="video-container">
-    <video width="100%" height="50%" autoplay loop muted controls>
+    <video controls preload="metadata" playsinline style="width: 100%; height: auto;">
       <source src="images/tech.mp4" type="video/mp4" />
     </video>
   </div>
@@ -217,7 +274,7 @@
 (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="iMbCDAlvqlZg0IMqmuEpO";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
 </script>
 
-</body>
+
 
 
 
@@ -396,9 +453,24 @@ Email me
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
 
-	</body>
+	<script>
+(function () {
+  var root = document.documentElement;
+  var toggle = document.getElementById('academic-theme-toggle');
+  function sync() {
+    toggle.setAttribute('aria-pressed', String(root.dataset.academicTheme === 'dark'));
+  }
+  toggle.hidden = false;
+  sync();
+  toggle.addEventListener('click', function () {
+    root.dataset.academicTheme = root.dataset.academicTheme === 'dark' ? 'light' : 'dark';
+    try { localStorage.setItem('portfolio-theme', root.dataset.academicTheme); } catch (_) {}
+    sync();
+  });
+})();
+</script>
+</body>
 </html>
-
 
 
 
