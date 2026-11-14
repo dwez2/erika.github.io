@@ -41,6 +41,29 @@
 [data-academic-theme="dark"] .academic-case { background:#19283c; }
 [data-academic-theme="dark"] #main .date::before, [data-academic-theme="dark"] #main .date::after { border-color:#809ab4; }
 :focus-visible { outline:3px solid #429ad8; outline-offset:4px; }
+
+.degree-track { margin:0 0 1rem; font:700 .85rem/1.5 system-ui,sans-serif !important; letter-spacing:.08em; text-transform:uppercase; }
+.degree-track span { padding:0 .3em; }
+#main .academic-toolbar a, #main #academic-theme-toggle, #main .cyber-buttons button, #main .post a.button, #main .pagination .page {
+  display:inline-flex; justify-content:center; align-items:center; border:1px solid #56748c; border-radius:.65rem;
+  padding:.55rem 1rem; min-height:2.65rem; height:auto; line-height:1.3; box-shadow:none; margin:0;
+  background:#edf5fc; color:#17334d !important; font-weight:700;
+}
+#main .pagination { display:flex; flex-wrap:wrap; gap:.35rem; justify-content:center; }
+#main .pagination .page { min-width:2.65rem; padding:.45rem; }
+#main .cyber-buttons { display:flex; flex-wrap:wrap; gap:.55rem; margin-bottom:.65rem; }
+[data-academic-theme="dark"] #main :is(.academic-toolbar a,#academic-theme-toggle,.cyber-buttons button,.post a.button,.pagination .page) { color:#dceeff !important; background:#172c41; }
+#main :is(.academic-toolbar a,#academic-theme-toggle,.cyber-buttons button,.post a.button,.pagination a.page):hover,
+#main .pagination .page.active { color:#fff !important; background:#225e8c; border-color:#71b9ec; }
+[data-academic-theme="dark"] #footer .tech-pill { color:#182a3c; background:#f2f7fc; }
+.telnet-feature { padding:clamp(1rem,3vw,2rem); border-radius:1rem; background:#eaf4f0; border:1px solid #45836e; }
+[data-academic-theme="dark"] .telnet-feature { background:#0d221f; }
+.video-status { text-align:center; font:700 .85rem/1.5 monospace; letter-spacing:.1em; text-transform:uppercase; }
+.telnet-frame { position:relative; max-width:59rem; margin-inline:auto; padding:5px; border:1px solid #58bd94; border-radius:.75rem; background:#070c0b; box-shadow:0 0 18px #41ac7760; }
+.telnet-frame::before,.telnet-frame::after { content:""; pointer-events:none; position:absolute; width:1rem; height:1rem; border:2px solid #77ffc4; z-index:1; }
+.telnet-frame::before { top:.65rem; left:.65rem; border-right:0; border-bottom:0; }
+.telnet-frame::after { bottom:.65rem; right:.65rem; border-left:0; border-top:0; }
+.telnet-frame video { display:block; width:100%; height:auto; border-radius:.45rem; }
 </style>
 </head>
 	<body class="is-preload">
@@ -113,11 +136,11 @@
 
   <div class="academic-toolbar">
     <a href="#risk-assessment">Jump to the 2026 case study</a>
-    <button type="button" id="academic-theme-toggle" aria-pressed="false" hidden>Dark mode</button>
+    <button type="button" id="academic-theme-toggle" hidden>Dark mode</button>
   </div>
   <header class="major">
 
-    <span class="date">Academic | 2021–2023 &amp; 2026–Present</span>
+    <p class="degree-track">Bachelor’s <span aria-hidden="true">·</span> Master’s <span aria-hidden="true">·</span> Ph.D.</p>
 
     <h2>
       Applying Cybersecurity Concepts Through Real-World Projects and Hands-On Learning
@@ -163,7 +186,7 @@
   <hr />
 
   <article id="risk-assessment" class="academic-case">
-    <p class="academic-kicker">Fall 2026 · Dakota State University · INFA 713</p>
+    <p class="academic-kicker">Ph.D. Coursework · Fall 2026 · Dakota State University · INFA 713</p>
     <h2>Personal Security Risk Assessment</h2>
     <p>I assessed five devices on a small home network and presented the results in an executive memo. I built an asset inventory and network diagram, used the desktop Security Risk Assessment (SRA) Tool to document findings, and separated questions specific to healthcare from risks that applied to the network.</p>
     <div class="academic-grid">
@@ -185,6 +208,7 @@
 
   <hr />
 
+  <p class="academic-kicker">Bachelor’s Coursework</p>
   <h2>
     CIS Controls & IT Audit Frameworks
   </h2>
@@ -203,6 +227,7 @@
 
   <hr />
 
+  <p class="academic-kicker">Master’s Coursework</p>
   <h2>
     Vulnerability Assessment & Security Analysis with Nessus
   </h2>
@@ -237,11 +262,17 @@
 
   <hr />
 
-  <div class="video-container">
-    <video controls preload="metadata" playsinline style="width: 100%; height: auto;">
+  <section class="telnet-feature" aria-labelledby="telnet-heading">
+  <p class="academic-kicker">Networking Throwback</p>
+  <h2 id="telnet-heading">Star Wars in a Telnet Terminal</h2>
+  <p>This 27-second clip shows a scene recreated with text characters and sent over Telnet. Telnet was also used for remote terminal access, typically over TCP port 23. It sends session traffic in plain text, which is why administrators generally use SSH (Secure Shell), typically on TCP port 22, for encrypted remote access. An open port tells you a service is listening; knowing what the service is and why it’s there helps you decide whether to keep it available.</p>
+  <p class="video-status" id="telnet-status">Terminal recording · Ready to play</p>
+  <div class="video-container telnet-frame">
+    <video id="telnet-video" controls preload="metadata" playsinline aria-label="Star Wars ASCII animation recorded in a Telnet terminal">
       <source src="images/tech.mp4" type="video/mp4" />
     </video>
   </div>
+  </section>
 
   <hr />
 
@@ -288,10 +319,10 @@
   </p>
 
   <div class="cyber-buttons">
-    <button onclick="showLog('normal')">Normal Activity</button>
-    <button onclick="showLog('failed')">Failed Login</button>
-    <button onclick="showLog('suspicious')">Suspicious IP</button>
-    <button onclick="showLog('malware')">Malware Alert</button>
+    <button type="button" onclick="showLog('normal')">Normal Activity</button>
+    <button type="button" onclick="showLog('failed')">Failed Login</button>
+    <button type="button" onclick="showLog('suspicious')">Suspicious IP</button>
+    <button type="button" onclick="showLog('malware')">Malware Alert</button>
   </div>
 
   <div class="cyber-output" id="logOutput">
@@ -353,7 +384,7 @@
 
     <a href="career.html" class="page">4</a>
 
-    <span class="page active">5</span>
+    <span class="page active" aria-current="page">5</span>
 
     <a href="leadership.html" class="page">6</a>
 
@@ -458,8 +489,13 @@ Email me
   var root = document.documentElement;
   var toggle = document.getElementById('academic-theme-toggle');
   function sync() {
-    toggle.setAttribute('aria-pressed', String(root.dataset.academicTheme === 'dark'));
+    toggle.textContent = root.dataset.academicTheme === 'dark' ? '☀ Light mode' : '☾ Dark mode';
   }
+  var video = document.getElementById('telnet-video');
+  var status = document.getElementById('telnet-status');
+  video.addEventListener('playing', function () { status.textContent = 'Terminal recording · Playing'; });
+  video.addEventListener('pause', function () { status.textContent = video.ended ? 'Terminal recording · Complete' : 'Terminal recording · Paused'; });
+  video.addEventListener('ended', function () { status.textContent = 'Terminal recording · Complete'; });
   toggle.hidden = false;
   sync();
   toggle.addEventListener('click', function () {
