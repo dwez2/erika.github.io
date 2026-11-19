@@ -210,7 +210,19 @@
   #main[data-twe-theme="gaming"] .twe-media-grid { background:#152039; border-color:#485984; border-top-color:#82ffe0; }
   #main[data-twe-theme="gaming"] .twe-media-label { color:#82ffe0; }
   #main[data-twe-theme="gaming"] .twe-media-meta { color:#c2cee4; }
-  #main[data-twe-theme="gaming"] .twe-media .button { box-shadow:inset 0 0 0 2px #82ffe0; }
+  #main[data-twe-theme="gaming"] :is(.twe-profile, .twe-media) a.button {
+    color: #eafffa !important;
+    background-color: #182b40;
+    box-shadow: inset 0 0 0 2px #82ffe0;
+  }
+  #main[data-twe-theme="gaming"] :is(.twe-profile, .twe-media) a.button:is(:hover, :focus-visible) {
+    color: #0b1928 !important;
+    background-color: #82ffe0;
+  }
+  #main[data-twe-theme="gaming"] :is(.twe-profile, .twe-media) a.button:focus-visible {
+    outline: 2px solid #eafffa;
+    outline-offset: 3px;
+  }
   @media (max-width: 760px) { .twe-media-grid { grid-template-columns:1fr; } }
 </style>
 </head>
